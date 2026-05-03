@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/test-rate-limit-check/refs/heads/main/json-schema/test-rate-limit-check-quota-schema.json",
+  "title": "APIQuota",
+  "description": "An API usage quota defining the total request allowance for a consumer over a longer period, distinct from per-second or per-minute rate limits.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the quota."
+    },
+    "consumer_id": {
+      "type": "string",
+      "description": "Identifier of the API consumer this quota applies to."
+    },
+    "api_name": {
+      "type": "string",
+      "description": "Name of the API this quota applies to."
+    },
+    "tier": {
+      "type": "string",
+      "description": "Subscription tier or plan this quota is associated with (e.g., free, basic, pro, enterprise)."
+    },
+    "total_limit": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum total number of requests allowed in the quota period."
+    },
+    "used": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of requests used so far in the current quota period."
+    },
+    "remaining": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of requests remaining in the current quota period."
+    },
+    "period": {
+      "type": "string",
+      "enum": ["daily", "weekly", "monthly", "yearly"],
+      "description": "Duration of the quota period."
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the current quota period started."
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the current quota period ends."
+    },
+    "overage_enabled": {
+      "type": "boolean",
+      "description": "Whether requests beyond the quota are allowed (possibly at additional cost)."
+    },
+    "overage_rate": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Cost per request for overage requests beyond the quota limit."
+    },
+    "percentage_used": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percentage of quota consumed in the current period."
+    }
+  },
+  "required": ["id", "consumer_id", "total_limit", "period"]
+}

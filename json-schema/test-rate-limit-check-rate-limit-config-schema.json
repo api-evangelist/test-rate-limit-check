@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/test-rate-limit-check/refs/heads/main/json-schema/test-rate-limit-check-rate-limit-config-schema.json",
+  "title": "RateLimitConfig",
+  "description": "Configuration for an API rate limit policy defining request quotas, time windows, and enforcement behavior.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the rate limit configuration."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this rate limit policy."
+    },
+    "api_name": {
+      "type": "string",
+      "description": "Name of the API this rate limit applies to."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["global", "per-consumer", "per-ip", "per-api-key", "per-endpoint"],
+      "description": "Scope at which the rate limit is applied."
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum number of requests allowed in the defined time window."
+    },
+    "window_seconds": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Duration of the rate limit time window in seconds."
+    },
+    "window_type": {
+      "type": "string",
+      "enum": ["fixed", "sliding", "token-bucket", "leaky-bucket"],
+      "description": "Algorithm used to enforce the rate limit window."
+    },
+    "burst_limit": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum burst allowance above the baseline rate limit."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether this rate limit policy is currently active."
+    },
+    "response_status": {
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599,
+      "default": 429,
+      "description": "HTTP status code returned when the rate limit is exceeded."
+    },
+    "headers": {
+      "$ref": "#/$defs/RateLimitHeaders",
+      "description": "Rate limit headers returned in API responses."
+    }
+  },
+  "required": ["id", "name", "limit", "window_seconds"],
+  "$defs": {
+    "RateLimitHeaders": {
+      "type": "object",
+      "properties": {
+        "limit_header": {
+          "type": "string",
+          "default": "X-RateLimit-Limit",
+          "description": "Header name for the rate limit maximum."
+        },
+        "remaining_header": {
+          "type": "string",
+          "default": "X-RateLimit-Remaining",
+          "description": "Header name for remaining requests in the window."
+        },
+        "reset_header": {
+          "type": "string",
+          "default": "X-RateLimit-Reset",
+          "description": "Header name for the window reset timestamp."
+        },
+        "retry_after_header": {
+          "type": "string",
+          "default": "Retry-After",
+          "description": "Header name indicating when the client may retry."
+        }
+      }
+    }
+  }
+}

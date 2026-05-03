@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/test-rate-limit-check/refs/heads/main/json-schema/test-rate-limit-check-rate-limit-response-schema.json",
+  "title": "RateLimitResponse",
+  "description": "The HTTP response returned by an API when a rate limit is exceeded, including error details and retry guidance.",
+  "type": "object",
+  "properties": {
+    "status_code": {
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599,
+      "description": "HTTP status code of the rate limit response (typically 429)."
+    },
+    "error": {
+      "type": "string",
+      "description": "Error code or name (e.g., RATE_LIMIT_EXCEEDED, TOO_MANY_REQUESTS)."
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable error message explaining the rate limit violation."
+    },
+    "limit": {
+      "type": "integer",
+      "description": "The rate limit that was exceeded."
+    },
+    "remaining": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Remaining requests allowed in the current window (typically 0 when rate limited)."
+    },
+    "reset_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the rate limit window resets."
+    },
+    "retry_after_seconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of seconds to wait before retrying the request."
+    },
+    "headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Rate limit related response headers."
+    },
+    "documentation_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to documentation about rate limits for this API."
+    }
+  },
+  "required": ["status_code", "error", "message"]
+}

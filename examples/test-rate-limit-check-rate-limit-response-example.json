@@ -1,0 +1,11 @@
+{
+  "status_code": 429,
+  "error": "sample-error",
+  "message": "This is a sample message.",
+  "limit": 63,
+  "remaining": 91,
+  "reset_at": "2025-03-15T14:30:00Z",
+  "retry_after_seconds": 39,
+  "headers": {},
+  "documentation_url": "https://example.com/api/documentation-url/abc123"
+}

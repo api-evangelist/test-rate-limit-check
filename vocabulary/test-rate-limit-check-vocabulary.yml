@@ -1,0 +1,157 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Test Rate Limit Check
+  description: Vocabulary and taxonomy for API rate limit testing covering rate limit configurations, quota management, throttling behavior, and test validation concepts.
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  resources:
+    - name: rate-limit-configs
+      description: Rate limiting policy configurations defining quotas, windows, and enforcement rules.
+      actions: [create, read, update, delete, list]
+    - name: rate-limit-responses
+      description: API responses returned when rate limits are exceeded.
+      actions: [read, list]
+    - name: quotas
+      description: Usage quotas defining total request allowances for API consumers over a period.
+      actions: [create, read, update, delete, list, reset]
+
+  actions:
+    - name: create
+      description: Create a new rate limit policy or quota.
+      http_methods: [POST]
+      pattern: write
+    - name: read
+      description: Retrieve a specific rate limit config or quota.
+      http_methods: [GET]
+      pattern: read
+    - name: update
+      description: Update a rate limit configuration or quota.
+      http_methods: [PUT, PATCH]
+      pattern: write
+    - name: delete
+      description: Remove a rate limit policy or quota.
+      http_methods: [DELETE]
+      pattern: destructive
+    - name: list
+      description: List rate limit configs or quotas with filtering.
+      http_methods: [GET]
+      pattern: read
+    - name: reset
+      description: Reset a quota counter before its natural expiry.
+      http_methods: [POST]
+      pattern: write
+
+  schemas:
+    core:
+      - name: RateLimitConfig
+        description: Rate limiting policy defining request limits, time windows, and enforcement.
+        key_properties: [id, name, scope, limit, window_seconds, window_type, burst_limit, enabled, response_status]
+      - name: RateLimitResponse
+        description: HTTP error response returned when rate limit is exceeded.
+        key_properties: [status_code, error, message, limit, remaining, reset_at, retry_after_seconds]
+      - name: APIQuota
+        description: Usage quota for an API consumer defining total allowance over a period.
+        key_properties: [id, consumer_id, tier, total_limit, used, remaining, period, period_end]
+
+  enums:
+    scope:
+      - global
+      - per-consumer
+      - per-ip
+      - per-api-key
+      - per-endpoint
+    window_type:
+      - fixed
+      - sliding
+      - token-bucket
+      - leaky-bucket
+    period:
+      - daily
+      - weekly
+      - monthly
+      - yearly
+    tier:
+      - free
+      - basic
+      - pro
+      - enterprise
+
+  parameters:
+    identifiers:
+      - name: id
+        description: Unique identifier for the rate limit entity.
+        type: string
+      - name: consumer_id
+        description: Identifier of the API consumer.
+        type: string
+      - name: api_name
+        description: Name of the API the limit applies to.
+        type: string
+    filters:
+      - name: scope
+        description: Filter by rate limit scope.
+        type: string
+      - name: enabled
+        description: Filter by whether the policy is active.
+        type: boolean
+      - name: tier
+        description: Filter quotas by consumer tier.
+        type: string
+    pagination:
+      - name: limit
+        description: Maximum number of results per page.
+        type: integer
+      - name: offset
+        description: Number of results to skip.
+        type: integer
+
+  authentication:
+    schemes:
+      - type: bearer
+        description: Bearer token for API gateway admin APIs.
+      - type: apikey
+        description: API key authentication for rate limit management endpoints.
+
+capability:
+  workflows: []
+  personas:
+    - id: api-developer
+      name: API Developer
+      description: Developer building clients that must handle rate limit responses correctly.
+    - id: api-operator
+      name: API Operator
+      description: Platform operator configuring and monitoring rate limit policies.
+    - id: qa-engineer
+      name: QA Engineer
+      description: Quality assurance engineer testing that rate limit policies are correctly enforced.
+    - id: platform-engineer
+      name: Platform Engineer
+      description: Engineer designing and implementing rate limiting infrastructure.
+  domains:
+    - name: Rate Limit Policy
+      description: Configuring and managing rate limiting rules and enforcement behavior.
+    - name: Quota Management
+      description: Defining and tracking API usage quotas per consumer and tier.
+    - name: Throttling Testing
+      description: Validating that APIs correctly enforce rate limits and return proper error responses.
+    - name: Observability
+      description: Monitoring rate limit metrics, quota usage, and throttling events.
+  namespaces: []
+  binds: []
+
+crossReference:
+  - resource: rate-limit-configs
+    operations: [create, read, update, delete, list]
+    workflows: []
+    personas: [api-operator, platform-engineer]
+  - resource: rate-limit-responses
+    operations: [read, list]
+    workflows: []
+    personas: [api-developer, qa-engineer]
+  - resource: quotas
+    operations: [create, read, update, delete, list, reset]
+    workflows: []
+    personas: [api-operator, qa-engineer, api-developer]

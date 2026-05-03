@@ -1,0 +1,15 @@
+{
+  "id": "sample-id",
+  "consumer_id": "consumer-001",
+  "api_name": "Sample Api Name",
+  "tier": "pro",
+  "total_limit": 16,
+  "used": 55,
+  "remaining": 7,
+  "period": "weekly",
+  "period_start": "2025-03-15T14:30:00Z",
+  "period_end": "2025-03-15T14:30:00Z",
+  "overage_enabled": true,
+  "overage_rate": 15.25,
+  "percentage_used": 61.16
+}

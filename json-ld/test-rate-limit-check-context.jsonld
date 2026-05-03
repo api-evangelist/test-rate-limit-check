@@ -1,0 +1,137 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "testratelimitcheck": "https://api-evangelist.github.io/test-rate-limit-check/schema/",
+    "APIQuota": "testratelimitcheck:APIQuota",
+    "RateLimitConfig": "testratelimitcheck:RateLimitConfig",
+    "RateLimitResponse": "testratelimitcheck:RateLimitResponse",
+    "apiName": {
+      "@id": "testratelimitcheck:api_name",
+      "@type": "xsd:string"
+    },
+    "burstLimit": {
+      "@id": "testratelimitcheck:burst_limit",
+      "@type": "xsd:integer"
+    },
+    "consumerId": {
+      "@id": "testratelimitcheck:consumer_id",
+      "@type": "xsd:string"
+    },
+    "documentationUrl": {
+      "@id": "testratelimitcheck:documentation_url",
+      "@type": "@id"
+    },
+    "enabled": {
+      "@id": "testratelimitcheck:enabled",
+      "@type": "xsd:boolean"
+    },
+    "error": {
+      "@id": "testratelimitcheck:error",
+      "@type": "xsd:string"
+    },
+    "headers": {
+      "@id": "testratelimitcheck:headers"
+    },
+    "id": {
+      "@id": "dcterms:identifier"
+    },
+    "limit": {
+      "@id": "testratelimitcheck:limit",
+      "@type": "xsd:integer"
+    },
+    "limitHeader": {
+      "@id": "testratelimitcheck:limit_header",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "testratelimitcheck:message",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "overageEnabled": {
+      "@id": "testratelimitcheck:overage_enabled",
+      "@type": "xsd:boolean"
+    },
+    "overageRate": {
+      "@id": "testratelimitcheck:overage_rate",
+      "@type": "xsd:decimal"
+    },
+    "percentageUsed": {
+      "@id": "testratelimitcheck:percentage_used",
+      "@type": "xsd:decimal"
+    },
+    "period": {
+      "@id": "testratelimitcheck:period",
+      "@type": "xsd:string"
+    },
+    "periodEnd": {
+      "@id": "testratelimitcheck:period_end",
+      "@type": "xsd:dateTime"
+    },
+    "periodStart": {
+      "@id": "testratelimitcheck:period_start",
+      "@type": "xsd:dateTime"
+    },
+    "remaining": {
+      "@id": "testratelimitcheck:remaining",
+      "@type": "xsd:integer"
+    },
+    "remainingHeader": {
+      "@id": "testratelimitcheck:remaining_header",
+      "@type": "xsd:string"
+    },
+    "resetAt": {
+      "@id": "testratelimitcheck:reset_at",
+      "@type": "xsd:dateTime"
+    },
+    "resetHeader": {
+      "@id": "testratelimitcheck:reset_header",
+      "@type": "xsd:string"
+    },
+    "responseStatus": {
+      "@id": "testratelimitcheck:response_status",
+      "@type": "xsd:integer"
+    },
+    "retryAfterHeader": {
+      "@id": "testratelimitcheck:retry_after_header",
+      "@type": "xsd:string"
+    },
+    "retryAfterSeconds": {
+      "@id": "testratelimitcheck:retry_after_seconds",
+      "@type": "xsd:integer"
+    },
+    "scope": {
+      "@id": "testratelimitcheck:scope",
+      "@type": "xsd:string"
+    },
+    "statusCode": {
+      "@id": "testratelimitcheck:status_code",
+      "@type": "xsd:integer"
+    },
+    "tier": {
+      "@id": "testratelimitcheck:tier",
+      "@type": "xsd:string"
+    },
+    "totalLimit": {
+      "@id": "testratelimitcheck:total_limit",
+      "@type": "xsd:integer"
+    },
+    "used": {
+      "@id": "testratelimitcheck:used",
+      "@type": "xsd:integer"
+    },
+    "windowSeconds": {
+      "@id": "testratelimitcheck:window_seconds",
+      "@type": "xsd:integer"
+    },
+    "windowType": {
+      "@id": "testratelimitcheck:window_type",
+      "@type": "xsd:string"
+    }
+  }
+}

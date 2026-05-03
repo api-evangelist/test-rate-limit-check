@@ -1,0 +1,18 @@
+{
+  "id": "sample-id",
+  "name": "Sample Name",
+  "api_name": "Sample Api Name",
+  "scope": "per-ip",
+  "limit": 36,
+  "window_seconds": 73,
+  "window_type": "leaky-bucket",
+  "burst_limit": 59,
+  "enabled": true,
+  "response_status": 429,
+  "headers": {
+    "limit_header": "X-RateLimit-Limit",
+    "remaining_header": "X-RateLimit-Remaining",
+    "reset_header": "X-RateLimit-Reset",
+    "retry_after_header": "Retry-After"
+  }
+}
