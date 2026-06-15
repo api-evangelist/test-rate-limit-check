@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kong Gateway Admin API (Rate Limit Check)",
+    "version": "3.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Kong-Admin-Token",
+      "value": "{{Kong-Admin-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get node status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8001/status"
+      },
+      "docs": "Get node status"
+    },
+    {
+      "info": {
+        "name": "List services",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8001/services"
+      },
+      "docs": "List services"
+    },
+    {
+      "info": {
+        "name": "Create a service",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8001/services",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a service"
+    },
+    {
+      "info": {
+        "name": "List routes",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8001/routes"
+      },
+      "docs": "List routes"
+    },
+    {
+      "info": {
+        "name": "Create a route",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8001/routes",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a route"
+    },
+    {
+      "info": {
+        "name": "List consumers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8001/consumers"
+      },
+      "docs": "List consumers"
+    },
+    {
+      "info": {
+        "name": "List plugins (including rate-limiting plugins)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:8001/plugins"
+      },
+      "docs": "List plugins (including rate-limiting plugins)"
+    },
+    {
+      "info": {
+        "name": "Create a plugin (e.g. rate-limiting)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8001/plugins",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a plugin (e.g. rate-limiting)"
+    },
+    {
+      "info": {
+        "name": "Validate a plugin configuration",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://localhost:8001/schemas/plugins/validate",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Validate a plugin configuration"
+    }
+  ],
+  "bundled": true
+}
