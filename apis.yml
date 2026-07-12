@@ -90,6 +90,10 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/grafana/grafana/main/public/api-spec.json
 common:
+  - type: DomainSecurity
+    url: security/test-rate-limit-check-domain-security.yml
+  - type: Authentication
+    url: authentication/test-rate-limit-check-authentication.yml
   - type: Documentation
     url: https://en.wikipedia.org/wiki/Rate_limiting
   - type: Documentation

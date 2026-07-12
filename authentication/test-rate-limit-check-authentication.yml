@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/test-rate-limit-check-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: rbacToken
+  type: apiKey
+  in: header
+  parameter: Kong-Admin-Token
+  description: RBAC admin token issued by Kong Gateway when RBAC is enabled.
+  sources:
+  - openapi/test-rate-limit-check-openapi.yml
