@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Kong Gateway Admin API (Rate Limit Check) Consumers Routes API
+  description: Subset of the Kong Gateway Admin API used for configuring and validating rate limiting on services, routes, consumers, and plugins. Exposed by a self-hosted Kong Gateway control plane on port 8001 (HTTP) or 8444 (HTTPS).
+  version: 3.x
+  contact:
+    name: Kong Gateway Admin API
+    url: https://developer.konghq.com/admin-api/
+servers:
+- url: http://localhost:8001
+  description: Default Kong Admin API (HTTP)
+- url: https://localhost:8444
+  description: Default Kong Admin API (HTTPS)
+security:
+- rbacToken: []
+- {}
+tags:
+- name: Routes
+paths:
+  /routes:
+    get:
+      summary: List routes
+      operationId: listRoutes
+      responses:
+        '200':
+          description: Routes listed.
+      tags:
+      - Routes
+    post:
+      summary: Create a route
+      operationId: createRoute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Route created.
+      tags:
+      - Routes
+components:
+  securitySchemes:
+    rbacToken:
+      type: apiKey
+      in: header
+      name: Kong-Admin-Token
+      description: RBAC admin token issued by Kong Gateway when RBAC is enabled.
