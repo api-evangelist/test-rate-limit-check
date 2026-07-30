@@ -1,3 +1,17 @@
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/test-rate-limit-check.png
 name: Test Rate Limit Check
 description: Testing and validation of API rate limiting implementations to ensure that APIs correctly enforce request quotas, return appropriate error responses, and recover gracefully when limits are exceeded. Rate limit testing verifies throttling behavior, retry-after headers, burst allowances, and quota reset mechanisms across different API consumers and usage tiers.
 url: https://en.wikipedia.org/wiki/Rate_limiting
@@ -11,84 +25,145 @@ tags:
 created: '2026-05-03'
 modified: '2026-05-03'
 apis:
-  - name: Kong Gateway Admin API
-    description: Admin REST API for Kong API Gateway, providing endpoints to configure rate limiting plugins, quotas, consumers, and traffic policies for API rate limit enforcement.
-    humanURL: https://docs.konghq.com/gateway/latest/admin-api/
-    baseURL: https://your-kong.example.com:8001
-    tags:
-      - API Gateway
-      - API Management
-      - Rate Limiting
-      - Traffic Control
-    properties:
-      - type: Documentation
-        url: https://docs.konghq.com/gateway/latest/admin-api/
-      - type: OpenAPI
-        url: https://docs.konghq.com/gateway/latest/admin-api/
-  - name: AWS API Gateway API
-    description: AWS REST API for managing API Gateway usage plans, API keys, throttling limits, and quota enforcement across API deployments.
-    humanURL: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-ref.html
-    baseURL: https://apigateway.amazonaws.com
-    tags:
-      - AWS
-      - API Gateway
-      - Cloud
-      - Rate Limiting
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-ref.html
-  - name: Apigee API
-    description: REST API for Google Apigee API management platform supporting rate limit policy configuration, quota management, spike arrest, and traffic shaping for API testing.
-    humanURL: https://cloud.google.com/apigee/docs/reference/apis/apigee/rest
-    baseURL: https://apigee.googleapis.com/v1
-    tags:
-      - API Management
-      - Google Cloud
-      - Quotas
-      - Rate Limiting
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/apigee/docs/reference/apis/apigee/rest
-  - name: Azure API Management API
-    description: REST API for Azure API Management service supporting subscription quotas, rate limit policies, and throttling configuration for testing rate limit implementations.
-    humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
-    baseURL: https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
-    tags:
-      - API Management
-      - Azure
-      - Microsoft
-      - Rate Limiting
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
-  - name: Tyk API Management API
-    description: REST API for Tyk open-source API gateway supporting rate limiting, quota management, key expiry, and throttling policy configuration and testing.
-    humanURL: https://tyk.io/docs/tyk-gateway-api/
-    baseURL: https://your-tyk.example.com/api
-    tags:
-      - API Gateway
-      - API Management
-      - Open Source
-      - Rate Limiting
-    properties:
-      - type: Documentation
-        url: https://tyk.io/docs/tyk-gateway-api/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/TykTechnologies/tyk/master/apidef/oas/schema/x-tyk-gateway.json
-  - name: Grafana API
-    description: REST API for Grafana observability platform, enabling rate limit test monitoring through dashboards, alerts, and metrics visualization for API traffic and throttling behavior.
-    humanURL: https://grafana.com/docs/grafana/latest/developers/http_api/
-    baseURL: https://your-grafana.example.com/api
-    tags:
-      - Dashboards
-      - Metrics
-      - Monitoring
-      - Observability
-    properties:
-      - type: Documentation
-        url: https://grafana.com/docs/grafana/latest/developers/http_api/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/grafana/grafana/main/public/api-spec.json
+- name: AWS API Gateway API
+  description: >-
+    AWS REST API for managing API Gateway usage plans, API keys, throttling limits, and quota enforcement
+    across API deployments.
+  humanURL: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-ref.html
+  baseURL: https://apigateway.amazonaws.com
+  tags:
+  - AWS
+  - API Gateway
+  - Cloud
+  - Rate Limiting
+  properties:
+  - type: Documentation
+    url: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-ref.html
+- name: Apigee API
+  description: >-
+    REST API for Google Apigee API management platform supporting rate limit policy configuration, quota
+    management, spike arrest, and traffic shaping for API testing.
+  humanURL: https://cloud.google.com/apigee/docs/reference/apis/apigee/rest
+  baseURL: https://apigee.googleapis.com/v1
+  tags:
+  - API Management
+  - Google Cloud
+  - Quotas
+  - Rate Limiting
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/apigee/docs/reference/apis/apigee/rest
+- name: Azure API Management API
+  description: >-
+    REST API for Azure API Management service supporting subscription quotas, rate limit policies, and
+    throttling configuration for testing rate limit implementations.
+  humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+  baseURL: >-
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
+  tags:
+  - API Management
+  - Azure
+  - Microsoft
+  - Rate Limiting
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+- aid: test-rate-limit-check:test-rate-limit-check-consumers-api
+  name: Test Rate Limit Check Consumers API
+  description: The Consumers API from Test Rate Limit Check — 1 operation(s) for consumers.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Consumers
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-consumers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
+- aid: test-rate-limit-check:test-rate-limit-check-plugins-api
+  name: Test Rate Limit Check Plugins API
+  description: The Plugins API from Test Rate Limit Check — 1 operation(s) for plugins.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-plugins-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
+- aid: test-rate-limit-check:test-rate-limit-check-routes-api
+  name: Test Rate Limit Check Routes API
+  description: The Routes API from Test Rate Limit Check — 1 operation(s) for routes.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-routes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
+- aid: test-rate-limit-check:test-rate-limit-check-schemas-api
+  name: Test Rate Limit Check Schemas API
+  description: The Schemas API from Test Rate Limit Check — 1 operation(s) for schemas.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Schemas
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-schemas-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
+- aid: test-rate-limit-check:test-rate-limit-check-services-api
+  name: Test Rate Limit Check Services API
+  description: The Services API from Test Rate Limit Check — 1 operation(s) for services.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-services-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
+- aid: test-rate-limit-check:test-rate-limit-check-status-api
+  name: Test Rate Limit Check Status API
+  description: The Status API from Test Rate Limit Check — 1 operation(s) for status.
+  humanURL: https://docs.konghq.com/gateway/latest/admin-api/
+  baseURL: https://your-kong.example.com:8001
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/test-rate-limit-check-status-api-openapi.yml
+  - type: Documentation
+    url: https://docs.konghq.com/gateway/latest/admin-api/
+  - type: Documentation
+    url: https://tyk.io/docs/tyk-gateway-api/
+  - type: Documentation
+    url: https://grafana.com/docs/grafana/latest/developers/http_api/
 common:
   - type: AgenticAccess
     url: agentic-access/test-rate-limit-check-agentic-access.yml
