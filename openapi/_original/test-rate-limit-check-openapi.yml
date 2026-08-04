@@ -1,0 +1,122 @@
+openapi: 3.1.0
+info:
+  title: Kong Gateway Admin API (Rate Limit Check)
+  description: >-
+    Subset of the Kong Gateway Admin API used for configuring and validating
+    rate limiting on services, routes, consumers, and plugins. Exposed by a
+    self-hosted Kong Gateway control plane on port 8001 (HTTP) or 8444 (HTTPS).
+  version: "3.x"
+  contact:
+    name: Kong Gateway Admin API
+    url: https://developer.konghq.com/admin-api/
+servers:
+  - url: http://localhost:8001
+    description: Default Kong Admin API (HTTP)
+  - url: https://localhost:8444
+    description: Default Kong Admin API (HTTPS)
+security:
+  - rbacToken: []
+  - {}
+paths:
+  /status:
+    get:
+      summary: Get node status
+      operationId: getStatus
+      responses:
+        '200':
+          description: Node status returned.
+  /services:
+    get:
+      summary: List services
+      operationId: listServices
+      responses:
+        '200':
+          description: Services listed.
+    post:
+      summary: Create a service
+      operationId: createService
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                url:
+                  type: string
+      responses:
+        '201':
+          description: Service created.
+  /routes:
+    get:
+      summary: List routes
+      operationId: listRoutes
+      responses:
+        '200':
+          description: Routes listed.
+    post:
+      summary: Create a route
+      operationId: createRoute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Route created.
+  /consumers:
+    get:
+      summary: List consumers
+      operationId: listConsumers
+      responses:
+        '200':
+          description: Consumers listed.
+  /plugins:
+    get:
+      summary: List plugins (including rate-limiting plugins)
+      operationId: listPlugins
+      responses:
+        '200':
+          description: Plugins listed.
+    post:
+      summary: Create a plugin (e.g. rate-limiting)
+      operationId: createPlugin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: rate-limiting
+                config:
+                  type: object
+      responses:
+        '201':
+          description: Plugin created.
+  /schemas/plugins/validate:
+    post:
+      summary: Validate a plugin configuration
+      operationId: validatePluginSchema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Plugin configuration valid.
+components:
+  securitySchemes:
+    rbacToken:
+      type: apiKey
+      in: header
+      name: Kong-Admin-Token
+      description: RBAC admin token issued by Kong Gateway when RBAC is enabled.

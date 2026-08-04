@@ -1,0 +1,24 @@
+{
+  "provider": "test-rate-limit-check",
+  "sources": [
+    "test-rate-limit-check-consumers-api-openapi.yml",
+    "test-rate-limit-check-plugins-api-openapi.yml",
+    "test-rate-limit-check-routes-api-openapi.yml",
+    "test-rate-limit-check-schemas-api-openapi.yml",
+    "test-rate-limit-check-services-api-openapi.yml",
+    "test-rate-limit-check-status-api-openapi.yml"
+  ],
+  "outputs": [
+    "test-rate-limit-check-consumers-api-openapi.yml",
+    "test-rate-limit-check-plugins-api-openapi.yml",
+    "test-rate-limit-check-routes-api-openapi.yml",
+    "test-rate-limit-check-schemas-api-openapi.yml",
+    "test-rate-limit-check-services-api-openapi.yml",
+    "test-rate-limit-check-status-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
