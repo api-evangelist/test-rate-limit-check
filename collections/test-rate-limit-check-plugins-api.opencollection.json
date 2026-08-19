@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kong Gateway Admin API (Rate Limit Check) Consumers Plugins API",
+    "version": "3.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Kong-Admin-Token",
+      "value": "{{Kong-Admin-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plugins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List plugins (including rate-limiting plugins)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8001/plugins"
+          },
+          "docs": "List plugins (including rate-limiting plugins)"
+        },
+        {
+          "info": {
+            "name": "Create a plugin (e.g. rate-limiting)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8001/plugins",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a plugin (e.g. rate-limiting)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

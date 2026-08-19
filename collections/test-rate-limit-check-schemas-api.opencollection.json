@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kong Gateway Admin API (Rate Limit Check) Consumers Schemas API",
+    "version": "3.x"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Kong-Admin-Token",
+      "value": "{{Kong-Admin-Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schemas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate a plugin configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8001/schemas/plugins/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate a plugin configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
