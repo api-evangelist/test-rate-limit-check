@@ -26,6 +26,11 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/test-rate-limit-check.png
 name: Test Rate Limit Check
+# x-type: concept -- a software-testing CONCEPT, not a company (roadmap#362). Same class as
+# devops/mvc/waterfall/sdlc, which roadmap#258 already typed; this family was missed because
+# the sweep went by name and these read as products. Found via #258's own tell instead: the
+# website is a Wikipedia entry, which a record has when it has no homepage.
+x-type: concept
 description: Testing and validation of API rate limiting implementations to ensure that APIs correctly enforce request quotas, return appropriate error responses, and recover gracefully when limits are exceeded. Rate limit testing verifies throttling behavior, retry-after headers, burst allowances, and quota reset mechanisms across different API consumers and usage tiers.
 url: https://en.wikipedia.org/wiki/Rate_limiting
 tags:
