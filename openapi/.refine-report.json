@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "test-rate-limit-check-consumers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-plugins-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-routes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-schemas-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-services-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-status-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
