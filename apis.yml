@@ -141,6 +141,8 @@ apis:
   humanURL: https://docs.konghq.com/gateway/latest/admin-api/
   baseURL: https://your-kong.example.com:8001
   tags:
+  - Schema
+  tags_raw:
   - Schemas
   properties:
   - type: OpenAPI
