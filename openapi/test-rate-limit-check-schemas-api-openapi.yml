@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Kong Gateway Admin API (Rate Limit Check) Consumers Schemas API
+  title: Kong Gateway Admin API (Rate Limit Check) Schemas API
   description: Subset of the Kong Gateway Admin API used for configuring and validating rate limiting on services, routes, consumers, and plugins. Exposed by a self-hosted Kong Gateway control plane on port 8001 (HTTP) or 8444 (HTTPS).
   version: 3.x
   contact:

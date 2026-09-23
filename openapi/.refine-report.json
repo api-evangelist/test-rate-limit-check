@@ -1,12 +1,7 @@
 {
   "provider": "test-rate-limit-check",
   "sources": [
-    "test-rate-limit-check-consumers-api-openapi.yml",
-    "test-rate-limit-check-plugins-api-openapi.yml",
-    "test-rate-limit-check-routes-api-openapi.yml",
-    "test-rate-limit-check-schemas-api-openapi.yml",
-    "test-rate-limit-check-services-api-openapi.yml",
-    "test-rate-limit-check-status-api-openapi.yml"
+    "_original/test-rate-limit-check-openapi.yml"
   ],
   "outputs": [
     "test-rate-limit-check-consumers-api-openapi.yml",
@@ -20,13 +15,31 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "test-rate-limit-check-consumers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "test-rate-limit-check-plugins-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "test-rate-limit-check-routes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "test-rate-limit-check-schemas-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "test-rate-limit-check-services-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "test-rate-limit-check-status-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "test-rate-limit-check-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "test-rate-limit-check-openapi.yml: tagged paths GET /status -> Status",
+    "test-rate-limit-check-openapi.yml: tagged paths GET /services -> Services",
+    "test-rate-limit-check-openapi.yml: tagged paths POST /services -> Services",
+    "test-rate-limit-check-openapi.yml: tagged paths GET /routes -> Routes",
+    "test-rate-limit-check-openapi.yml: tagged paths POST /routes -> Routes",
+    "test-rate-limit-check-openapi.yml: tagged paths GET /consumers -> Consumers",
+    "test-rate-limit-check-openapi.yml: tagged paths GET /plugins -> Plugins",
+    "test-rate-limit-check-openapi.yml: tagged paths POST /plugins -> Plugins",
+    "test-rate-limit-check-openapi.yml: tagged paths POST /schemas/plugins/validate -> Schemas",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Consumers",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Plugins",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Routes",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Schemas",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Services",
+    "test-rate-limit-check-openapi.yml: declared missing tag: Status",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "test-rate-limit-check-consumers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "test-rate-limit-check-plugins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "test-rate-limit-check-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "test-rate-limit-check-schemas-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "test-rate-limit-check-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "test-rate-limit-check-status-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
