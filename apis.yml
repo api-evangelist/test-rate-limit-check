@@ -26,6 +26,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/test-rate-limit-check.png
 name: Test Rate Limit Check
+kind: topic
 # x-type: concept -- a software-testing CONCEPT, not a company (roadmap#362). Same class as
 # devops/mvc/waterfall/sdlc, which roadmap#258 already typed; this family was missed because
 # the sweep went by name and these read as products. Found via #258's own tell instead: the
