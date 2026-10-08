@@ -187,6 +187,12 @@ apis:
   - type: Documentation
     url: https://grafana.com/docs/grafana/latest/developers/http_api/
 common:
+  - type: Plans
+    url: plans/test-rate-limit-check-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/test-rate-limit-check-rate-limits.yml
+  - type: FinOps
+    url: finops/test-rate-limit-check-finops.yml
   - type: AgenticAccess
     url: agentic-access/test-rate-limit-check-agentic-access.yml
   - type: DomainSecurity
